@@ -21,9 +21,13 @@ const Tips = () => {
             position: 'relative',
             direction: 'rtl'
           }}
-        >
-          <div style={{ color: 'black' }}>
-            💡 {tip.content}
+        >          <div style={{ color: 'black', marginBottom: '8px' }}>
+            <div style={{ fontWeight: 'bold', marginBottom: '4px' }}>
+              💡 {tip.title}
+            </div>
+            <div>
+              {tip.content}
+            </div>
           </div>
           <div
             style={{
@@ -60,13 +64,13 @@ const Tips = () => {
   };
 
   useEffect(() => {
-    // Show first tip immediately
+   
     fetchAndShowTip();
 
-    // Set up interval to show tip every minute
+    
     const interval = setInterval(fetchAndShowTip, 60000);
 
-    // Cleanup interval on component unmount
+   
     return () => clearInterval(interval);
   }, []);
 
